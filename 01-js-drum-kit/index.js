@@ -9,11 +9,11 @@ const playSound = (e) => {
   key.classList.add('playing');
 }
 
-const removeTransition = (e, key) => {
+const removeTransition = (e) => {
   if(e.propertyName === 'transition') return; // skip it if it is not a transform
   e.target.classList.remove('playing');
 }
 
 const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', (e, key) => removeTransition(e, key)));
+keys.forEach(key => key.addEventListener('transitionend', (e) => removeTransition(e)));
 window.addEventListener('keydown', playSound);
